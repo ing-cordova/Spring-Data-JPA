@@ -8,10 +8,10 @@
 		<version>2.4.0</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.unab.edu</groupId>
-	<artifactId>com.unab.edu</artifactId>
+	<groupId>com.unab.clase</groupId>
+	<artifactId>com.unab.clase</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>Spring Data JPA</name>
+	<name>Spring_Data_JPA</name>
 	<description>Demo project for Spring Boot</description>
 
 	<properties>
