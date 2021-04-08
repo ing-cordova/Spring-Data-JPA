@@ -35,6 +35,41 @@ CREATE TABLE `persona` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
+-- Table structure for table `rol`
+--
+
+DROP TABLE IF EXISTS `rol`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `rol` (
+  `id_rol` int NOT NULL AUTO_INCREMENT,
+  `nombre` varchar(50) DEFAULT NULL,
+  PRIMARY KEY (`id_rol`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Table structure for table `usuario`
+--
+
+DROP TABLE IF EXISTS `usuario`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `usuario` (
+  `id_usuario` int NOT NULL AUTO_INCREMENT,
+  `username` varchar(45) DEFAULT NULL,
+  `password` varchar(45) DEFAULT NULL,
+  `id_rol` int DEFAULT NULL,
+  `id_persona` int DEFAULT NULL,
+  PRIMARY KEY (`id_usuario`),
+  KEY `FK_idRol_idx` (`id_rol`),
+  KEY `FK_idPersona_idx` (`id_persona`),
+  CONSTRAINT `FK_idPersona` FOREIGN KEY (`id_persona`) REFERENCES `persona` (`id_persona`),
+  CONSTRAINT `FK_idRol` FOREIGN KEY (`id_rol`) REFERENCES `rol` (`id_rol`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
 -- Dumping routines for database 'test'
 --
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -47,4 +82,4 @@ CREATE TABLE `persona` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-12-03 15:13:52
+-- Dump completed on 2021-04-07 20:39:31
